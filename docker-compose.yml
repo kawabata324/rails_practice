@@ -1,0 +1,25 @@
+services:
+  web:
+    build: .
+    # ホスト：コンテナ
+    ports:
+      - "3002:3002"
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+      # rm -f tmp/pids/server.pid 開発用WEBサーバー起動時に tmp/pids/server.pidに書き込まれ、終了する時に削除されるが、WEBサーバーが正常に終了していない場合は残ったままになるので 開発サーバーが起動中と判断されてしまう。そのため削除する必要がある。削除してもサーバー起動時に再生成されるので問題ない
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3002 -b '0.0.0.0'"
+  db:
+    # M1チップ特有のエラーを防ぐ
+    platform: linux/x86_64
+    image: mysql:5.7
+    volumes:
+      - mysql_data:/var/lib/mysql/
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      # ホスト : コンテナ
+    ports:
+      - "3306:3306"
+volumes:
+  mysql_data:
