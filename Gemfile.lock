@@ -62,6 +62,7 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ansi (1.5.0)
     autoprefixer-rails (10.4.2.0)
       execjs (~> 2)
     bindex (0.8.1)
@@ -112,6 +113,11 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.15.0)
+    minitest-reporters (1.5.0)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     msgpack (1.4.5)
     mysql2 (0.5.3)
     nio4r (2.5.8)
@@ -161,6 +167,7 @@ GEM
       ffi (~> 1.0)
     regexp_parser (2.2.1)
     rexml (3.2.5)
+    ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -229,6 +236,8 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.3)
+  minitest
+  minitest-reporters
   mysql2 (~> 0.5)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
