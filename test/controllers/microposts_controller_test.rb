@@ -2,6 +2,8 @@ require "test_helper"
 
 class MicropostsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @user = users(:one)
+    post users_url, params: { user: { name: @user.name, email: @user.email } }
     @micropost = microposts(:one)
   end
 
