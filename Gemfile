@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.7'
 #
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
-
+gem 'autoprefixer-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -38,6 +38,7 @@ group :development, :test do
   gem 'minitest-reporters'
   gem 'guard'
   gem 'guard-minitest'
+  gem 'rails-controller-testing'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
