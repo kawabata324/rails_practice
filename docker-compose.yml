@@ -1,5 +1,7 @@
 services:
   web:
+    stdin_open: true
+    tty: true
     build: .
     # ホスト：コンテナ
     ports:
