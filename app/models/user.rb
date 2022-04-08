@@ -10,4 +10,11 @@ class User < ApplicationRecord
             # INFO Mysqlではデフォルトで大文字小文字の区別はないが、他のデータベースを使用する可能性もあるので考慮する
             uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
+
+  # 渡された文字列のハッシュ値を渡す
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+             BCrypt::Engine.cost
+    BCrypt::Password.create(string, const: cost)
+  end
 end
