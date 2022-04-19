@@ -11,7 +11,7 @@ class User < ApplicationRecord
             format: { with: VALID_EMAIL_REGEX },
             # INFO Mysqlではデフォルトで大文字小文字の区別はないが、他のデータベースを使用する可能性もあるので考慮する
             uniqueness: { case_sensitive: false }
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   class << self
     # 渡された文字列のハッシュ値を渡す
